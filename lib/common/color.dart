@@ -8,4 +8,3 @@ const kBlack = Color(0xFF000000);
 const kWhite = Color(0xFFFFFFFF);
 const kGray = Color(0xFFD7D7D7);
 const kTextColor = Color(0xFFA2A2A2);
-const kGhostColor = Color(0xffffff);

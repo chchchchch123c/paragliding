@@ -201,12 +201,12 @@ class _TestState extends State<Home> {
               height: 150,
               width: widthMedia,
               child: Stack(
+                clipBehavior: Clip.none,
                 children: [
                   Positioned(
-                    bottom: -65,
-                    left: -60,
+                    bottom: -75,
                     child: Transform.scale(
-                      scale: 1.5,
+                      scale: 2,
                       child: Image.asset(
                         'assets/cloud.png',
                         width: widthMedia,
@@ -214,10 +214,10 @@ class _TestState extends State<Home> {
                     ),
                   ),
                   Positioned(
-                    bottom: -45,
-                    left: -215,
+                    left: -75,
+                    bottom: -50,
                     child: Transform.scale(
-                      scale: 1.5,
+                      scale: 2,
                       child: Image.asset(
                         'assets/cloud.png',
                         width: widthMedia,
