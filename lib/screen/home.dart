@@ -18,8 +18,10 @@ class _TestState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    homeProvider.isToggled = false;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       homeProvider.addListener(updateScreen);
+      homeProvider.showInitialDialog(context);
     },);
   }
 
@@ -63,26 +65,27 @@ class _TestState extends State<Home> {
               ),
             ),
             Spacer(),
-            GestureDetector(
-              onTap: () {
-                homeProvider.toggle(context);
-              },
-              child: Container(
-                width: widthMedia * 0.6,
-                height: widthMedia * 0.6,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: kWhite.withAlpha(150)),
-                ),
-                child: Center(
-                  child: Container(
-                    width: widthMedia * 0.5,
-                    height: widthMedia * 0.5,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: kWhite.withAlpha(200)),
-                    ),
-                    child: Center(
+            Container(
+              width: widthMedia * 0.6,
+              height: widthMedia * 0.6,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: kWhite.withAlpha(150)),
+              ),
+              child: Center(
+                child: Container(
+                  width: widthMedia * 0.5,
+                  height: widthMedia * 0.5,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: kWhite.withAlpha(200)),
+                  ),
+                  child: Center(
+                    child: InkWell(
+                      customBorder: CircleBorder(),
+                      onTap: () {
+                        homeProvider.toggle(context);
+                      },
                       child: AnimatedContainer(
                         duration: Duration(milliseconds: 300),
                         width: widthMedia * 0.45,
@@ -207,9 +210,12 @@ class _TestState extends State<Home> {
                     bottom: -75,
                     child: Transform.scale(
                       scale: 2,
-                      child: Image.asset(
-                        'assets/cloud.png',
-                        width: widthMedia,
+                      child: Hero(
+                        tag: 'cloud1',
+                        child: Image.asset(
+                          'assets/cloud.png',
+                          width: widthMedia,
+                        ),
                       ),
                     ),
                   ),
@@ -218,9 +224,12 @@ class _TestState extends State<Home> {
                     bottom: -50,
                     child: Transform.scale(
                       scale: 2,
-                      child: Image.asset(
-                        'assets/cloud.png',
-                        width: widthMedia,
+                      child: Hero(
+                        tag: 'cloud2',
+                        child: Image.asset(
+                          'assets/cloud.png',
+                          width: widthMedia,
+                        ),
                       ),
                     ),
                   ),

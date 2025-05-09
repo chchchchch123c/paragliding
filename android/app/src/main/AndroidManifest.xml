@@ -2,9 +2,9 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <application
-        android:label="paragliding"
+        android:label="Safe Paragliding"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/safe_paragliding">
         <activity
             android:name=".MainActivity"
             android:exported="true"
